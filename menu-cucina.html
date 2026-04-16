@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menù Cucina - Bottegaia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    @font-face {
+      font-family: "Gordita";
+      src: url("fonts/gordita-regular.woff") format("woff");
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: "Gordita";
+      src: url("fonts/gordita-bold.woff") format("woff");
+      font-weight: 700;
+    }
+
+    @font-face {
+      font-family: "NeueMontreal";
+      src: url("fonts/Neue Montreal Medium 500.woff2") format("woff2");
+      font-weight: 500;
+    }
+
+    @font-face {
+      font-family: "Champagne";
+      src: url("fonts/champagne-bold.woff2") format("woff2");
+      font-weight: 700;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    html, body { width:100%; min-height:100%; }
+
+    body {
+      font-family:"Gordita", Arial, sans-serif;
+      background:#efe2d4;
+      color:#822e1b;
+    }
+
+    a { text-decoration:none; color:inherit; }
+
+    .menu-pdf-page {
+      min-height:100vh;
+      background:#efe2d4;
+      padding:42px 56px 80px;
+      position:relative;
+    }
+
+    .menu-top-left,
+    .menu-top-right {
+      position:absolute;
+      top:50px;
+      z-index:5;
+    }
+
+    .menu-top-left { left:56px; }
+    .menu-top-right { right:56px; }
+
+    .menu-logo { width:185px; }
+
+    .menu-home-link {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-family:"NeueMontreal", Arial, sans-serif;
+      font-weight:500;
+      font-size:14px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:#822e1b;
+    }
+
+    .menu-pdf-content {
+      width:100%;
+      max-width:1180px;
+      margin:150px auto 0;
+      text-align:center;
+    }
+
+    .menu-pdf-title {
+      font-family:"Champagne", Arial, sans-serif;
+      font-size:54px;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .menu-pdf-text {
+      font-size:17px;
+      line-height:1.65;
+      margin-bottom:34px;
+    }
+
+    .menu-pdf-btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-width:320px;
+      padding:16px 28px;
+      border-radius:999px;
+      border:2px solid #822e1b;
+      background:#822e1b;
+      color:#efe2d4;
+      font-family:"NeueMontreal", Arial, sans-serif;
+      font-size:15px;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+    }
+
+    .menu-pdf-frame {
+      width:100%;
+      height:78vh;
+      border-radius:22px;
+      overflow:hidden;
+      margin-top:20px;
+    }
+
+    .menu-pdf-frame iframe {
+      width:100%;
+      height:100%;
+      border:none;
+    }
+
+    #scrollTopBtn {
+      position:fixed;
+      bottom:40px;
+      right:40px;
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(246,234,223,0.18);
+      color:#822e1b;
+      opacity:0;
+    }
+
+    #scrollTopBtn.show { opacity:1; }
+  </style>
+</head>
+
+<body>
+
+<section class="menu-pdf-page">
+
+  <div class="menu-top-left">
+    <a href="menu.html">
+      <img src="images/logolato.png" class="menu-logo">
+    </a>
+  </div>
+
+  <div class="menu-top-right">
+    <a href="menu.html" class="menu-home-link" data-key="home">
+      <i class="fa-solid fa-arrow-right"></i>
+      HOME
+    </a>
+  </div>
+
+  <div class="menu-pdf-content">
+
+    <h1 class="menu-pdf-title" data-key="title">MENÙ</h1>
+
+    <p class="menu-pdf-text" data-key="text">
+      Consulta il menù completo qui sotto oppure aprilo a schermo intero per leggerlo con più comodità.
+    </p>
+
+    <div class="menu-pdf-actions">
+      <a href="pdf/menu-cucina.pdf" target="_blank" class="menu-pdf-btn" data-key="button">
+        <i class="fa-solid fa-file-pdf"></i>
+        Apri il menù completo
+      </a>
+    </div>
+
+    <div class="menu-pdf-frame">
+      <iframe src="pdf/menu-cucina.pdf"></iframe>
+    </div>
+
+  </div>
+
+</section>
+
+<button id="scrollTopBtn">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+const translations = {
+  it: {
+    home: "HOME",
+    title: "MENÙ",
+    text: "Consulta il menù completo qui sotto oppure aprilo a schermo intero per leggerlo con più comodità.",
+    button: "Apri il menù completo"
+  },
+  en: {
+    home: "HOME",
+    title: "MENU",
+    text: "Browse the full menu below or open it in full screen for a better view.",
+    button: "Open full menu"
+  }
+};
+
+function applyLanguage() {
+  const lang = localStorage.getItem("siteLanguage") || "it";
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-key]").forEach(el => {
+    const key = el.getAttribute("data-key");
+    el.textContent = translations[lang][key];
+  });
+}
+
+applyLanguage();
+
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) scrollBtn.classList.add("show");
+  else scrollBtn.classList.remove("show");
+});
+
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({ top:0, behavior:"smooth" });
+});
+</script>
+
+</body>
+</html>

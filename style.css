@@ -1,0 +1,1777 @@
+/* FONT */
+@font-face {
+  font-family: "Gordita";
+  src: url("fonts/gordita-regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Gordita";
+  src: url("fonts/gordita-bold.woff") format("woff");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("fonts/Neue Montreal Medium 500.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("fonts/Neue Montreal Light 300.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Champagne";
+  src: url("fonts/Champagne & Limousines.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Gordita";
+  src: url("fonts/Gordita-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Gordita";
+  src: url("fonts/Gordita-Medium.woff2") format("woff2");
+  font-weight: 500;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background-color: #822e1b;
+  color: #822e1b;
+  font-family: "Gordita", Arial, sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER VECCHIO NASCOSTO */
+.site-header {
+  display: none;
+}
+
+.locations-nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   HOME HERO
+========================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  background-image: url("images/prima-foto.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  padding-top: 120px;
+}
+
+.hero-topbar {
+  position: fixed;
+  top: 18px;
+  left: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  border-radius: 999px;
+  background: rgba(246, 234, 223, 0.10);
+  border: 1px solid rgba(130, 46, 27, 0.10);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  transition:
+    background 0.35s ease,
+    backdrop-filter 0.35s ease,
+    -webkit-backdrop-filter 0.35s ease,
+    box-shadow 0.35s ease,
+    padding 0.35s ease,
+    top 0.35s ease,
+    left 0.35s ease,
+    right 0.35s ease,
+    border-color 0.35s ease,
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    color 0.3s ease;
+}
+
+/* entrata iniziale elegante */
+.hero-topbar-intro {
+  opacity: 0;
+  transform: translateY(-18px) scale(0.985);
+  animation: heroTopbarReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.15s;
+}
+
+@keyframes heroTopbarReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-topbar.scrolled {
+  top: 12px;
+  left: 18px;
+  right: 18px;
+  padding: 14px 24px;
+  background: rgba(246, 234, 223, 0.22);
+  border: 1px solid rgba(130, 46, 27, 0.16);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+}
+
+.hero-lang {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #822e1b;
+}
+
+.hero-menu {
+  display: flex;
+  gap: 44px;
+}
+
+.hero-menu a {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #822e1b;
+  transition: opacity 0.2s ease;
+}
+
+.hero-menu a:hover {
+  opacity: 0.7;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.hero-logo {
+  width: 720px;
+  max-width: 82%;
+  margin: 0 auto;
+}
+
+.hero-buttons {
+  margin-top: 90px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-pill-btn {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 17px;            /* leggermente più grande */
+  letter-spacing: 0.05em;     /* più respiro = più premium */
+  color: #822e1b;
+  border: 1.5px solid #822e1b;
+  border-radius: 999px;
+  padding: 20px 48px;         /* più “presenza” */
+  min-width: 240px;           /* più equilibrio tra i 3 bottoni */
+  background: transparent;
+  text-align: center;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.hero-pill-btn:hover {
+  background-color: #822e1b;
+  color: #f6eadf;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SOCIAL ICONS UNIFICATE
+========================= */
+.hero-icons,
+.second-icons,
+.eventi-hero-icons {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 54px;
+  z-index: 3;
+}
+
+.hero-icons {
+  bottom: 32px;
+}
+
+.second-icons {
+  bottom: 70px;
+}
+
+.eventi-hero-icons {
+  bottom: 38px;
+}
+
+.hero-icons a,
+.second-icons a,
+.eventi-hero-icons a {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hero-icons a {
+  color: #822e1b;
+  font-size: 38px;
+}
+
+.second-icons a {
+  color: #efe2d4;
+  font-size: 38px;
+}
+
+.eventi-hero-icons a {
+  color: #822e1b;
+  font-size: 38px;
+}
+
+.hero-icons a:hover,
+.second-icons a:hover,
+.eventi-hero-icons a:hover {
+  transform: translateY(-3px);
+  opacity: 0.7;
+}
+
+/* =========================
+   HOME SECOND SECTION
+========================= */
+.second-section {
+  background-image: url("images/team.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 30px 30px;
+  overflow: hidden;
+}
+
+.second-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(100, 30, 14, 0.70);
+  z-index: 1;
+}
+
+.second-logo-corner {
+  position: absolute;
+  top: 70px;
+  left: 36px;
+  z-index: 3;
+}
+
+.second-corner-logo {
+  width: 160px;
+  display: block;
+}
+
+.second-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #f6eadf;
+  max-width: 1300px;
+  width: 100%;
+  padding: 0 24px;
+  margin-bottom: 20px;
+}
+
+.second-storia-bg {
+  position: absolute;
+  top: -380px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 560px;
+  max-width: calc(100% - 80px);
+  opacity: 0.20;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.second-subtitle {
+  font-family: "Champagne", Arial, sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.30em;
+  margin-bottom: 10px;
+  color: #f6eadf;
+  position: relative;
+  top: -90px;
+}
+
+.second-title {
+  font-family: "Champagne", Arial, sans-serif;
+  font-size: 70px;
+  letter-spacing: 0.16em;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: #f6eadf;
+  position: relative;
+  top: -90px;
+}
+
+.second-text {
+  font-family: "Gordita", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  color: #efe2d4;
+  max-width: 1000px;
+  margin: 0 auto 18px;
+}
+
+/* =========================
+   EVENT CLEAN SECTION HOME
+========================= */
+.event-clean-section {
+  background: #efe2d4;
+  padding: 60px 70px 110px;
+}
+
+.event-clean-topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 28px;
+}
+
+.event-clean-topbar span {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0.30em;
+  color: #822e1b;
+}
+
+.event-clean-layout {
+  width: min(1160px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.event-clean-poster {
+  width: 100%;
+}
+
+.event-clean-poster-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.event-clean-content {
+  color: #822e1b;
+  max-width: 640px;
+}
+
+.event-clean-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  margin-bottom: 34px;
+}
+
+.event-clean-title-strong {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 68px;
+  letter-spacing: 0.01em;
+}
+
+.event-clean-title-light {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 58px;
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+  transition: color 0.25s ease, letter-spacing 0.25s ease, transform 0.25s ease;
+}
+
+.event-clean-title:hover .event-clean-title-light {
+  color: #a13b24;
+  letter-spacing: 0.06em;
+  transform: translateX(4px);
+}
+
+.event-clean-line {
+  width: 78px;
+  height: 2px;
+  background: #822e1b;
+  margin-bottom: 36px;
+}
+
+.event-clean-description {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  max-width: 620px;
+}
+
+.event-clean-description p {
+  margin-bottom: 26px;
+}
+
+.event-clean-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  color: #efe2d4;
+  background: #822e1b;
+  border: 2px solid #822e1b;
+  border-radius: 999px;
+  min-width: 205px;
+  padding: 16px 30px;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.event-clean-button:hover {
+  background: #ead7c2;
+  color: #822e1b;
+  transform: translateY(-2px);
+}
+
+.event-clean-toplink {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0.30em;
+  color: #822e1b;
+  text-decoration: none;
+  transition: letter-spacing 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.event-clean-toplink:hover {
+  letter-spacing: 0.34em;
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* =========================
+   PAGINA EVENTI - HERO
+========================= */
+.eventi-hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("images/eventi-main.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #822e1b;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 56px 170px;
+}
+
+.eventi-hero-top {
+  position: absolute;
+  top: 52px;
+  left: 86px;
+  z-index: 3;
+}
+
+.top-right-home {
+  position: absolute;
+  top: 52px;
+  right: 86px;
+  z-index: 3;
+}
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Gordita", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #822e1b;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.home-link:hover {
+  opacity: 0.7;
+  transform: translateX(2px);
+}
+
+.home-link i {
+  font-size: 13px;
+}
+
+.eventi-brand-wide-logo {
+  width: 190px;
+  max-width: 100%;
+  display: block;
+}
+
+.eventi-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(80px);
+}
+
+.eventi-hero-title {
+  font-family: "Gordita", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  color: #822e1b;
+  margin-bottom: 34px;
+  text-transform: uppercase;
+}
+
+.eventi-hero-subline {
+  font-family: "Gordita", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.35;
+  letter-spacing: 0.11em;
+  color: #822e1b;
+  text-transform: uppercase;
+  margin-bottom: 34px;
+}
+
+.eventi-hero-text {
+  max-width: 1200px;
+  margin-bottom: 22px;
+}
+
+.eventi-hero-text p {
+  font-family: "Gordita", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.45;
+  color: #822e1b;
+  margin-bottom: 6px;
+}
+
+.eventi-hero-cta-label {
+  font-family: "Gordita", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #822e1b;
+  margin-top: 40px;
+  margin-bottom: 22px;
+}
+
+.eventi-hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  padding: 18px 42px;
+  border: 2px solid #822e1b;
+  border-radius: 999px;
+  background: #822e1b;
+  color: #efe2d4;
+  font-family: "Gordita", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  margin-top: 30px;
+}
+
+.eventi-hero-button:hover {
+  background: transparent;
+  color: #822e1b;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   PAGINA EVENTI - GALLERY
+========================= */
+.eventi-gallery-logo {
+  position: absolute;
+  top: 28px;
+  left: 36px;
+  width: 160px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.eventi-gallery-section {
+  background: #822e1b;
+  height: 800px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+}
+
+.eventi-gallery-inner {
+  width: 1366px;
+  max-width: calc(100% - 24px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.eventi-gallery-kicker {
+  font-family: "Champagne", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: 0.08em;
+  color: #ead9c7;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.eventi-gallery-slider {
+  position: relative;
+}
+
+.eventi-gallery-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.eventi-gallery-track {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.eventi-gallery-slide {
+  min-width: 100%;
+}
+
+.eventi-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 325px);
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.eventi-gallery-card {
+  width: 325px;
+  height: 488px;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.eventi-gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Frecce section 2 */
+.eventi-gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 74px;
+  height: 74px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 6;
+  opacity: 0.65;
+  pointer-events: auto;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.eventi-gallery-slider:hover .eventi-gallery-arrow {
+  opacity: 1;
+}
+
+.eventi-gallery-arrow-left {
+  left: -95px;
+}
+
+.eventi-gallery-arrow-right {
+  right: -95px;
+}
+
+.eventi-gallery-arrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(246, 234, 223, 0.10);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: scale(0.82);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+}
+
+.eventi-gallery-arrow span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-top: 2.5px solid #efe2d4;
+  border-right: 2.5px solid #efe2d4;
+  z-index: 2;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.eventi-gallery-arrow-left span {
+  transform: translate(-38%, -50%) rotate(-135deg);
+}
+
+.eventi-gallery-arrow-right span {
+  transform: translate(-62%, -50%) rotate(45deg);
+}
+
+.eventi-gallery-arrow:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.eventi-gallery-arrow-left:hover {
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.eventi-gallery-arrow-right:hover {
+  transform: translateY(-50%) translateX(4px);
+}
+
+.eventi-gallery-arrow-left:hover span {
+  transform: translate(-48%, -50%) rotate(-135deg);
+  border-color: #f6eadf;
+}
+
+.eventi-gallery-arrow-right:hover span {
+  transform: translate(-52%, -50%) rotate(45deg);
+  border-color: #f6eadf;
+}
+
+.eventi-gallery-arrow:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+/* =========================
+   PAGINA EVENTI - POSTER
+========================= */
+.eventi-poster-section {
+  position: relative;
+  background: #ead7c2;
+  padding: 18px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.eventi-poster-topbar {
+  position: absolute;
+  top: 34px;
+  left: 35px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+}
+
+.eventi-poster-topbar-logo {
+  width: 170px;
+  display: block;
+  opacity: 0.95;
+}
+
+.eventi-poster-topbar-right {
+  position: absolute;
+  top: 34px;
+  right: 70px;
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.eventi-poster-topbar-right span {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0.30em;
+  color: #822e1b;
+  text-transform: uppercase;
+}
+
+.eventi-poster-grid {
+  width: 1080px;
+  max-width: 100%;
+  margin: 100px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, 243px);
+  justify-content: center;
+  gap: 36px;
+}
+
+.eventi-poster-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.eventi-poster-image {
+  width: 243px;
+  height: 405px;
+  object-fit: cover;
+}
+
+.eventi-poster-meta {
+  padding-top: 32px;
+}
+
+.eventi-poster-meta h3 {
+  font-family: "Gordita", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  color: #8d351f;
+  margin-bottom: 4px;
+}
+
+.eventi-poster-meta p {
+  font-family: "Gordita", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: #8d351f;
+}
+
+/* =========================
+   INFO SECTION
+========================= */
+.info-section {
+  background: #ead7c2;
+  padding: 60px 70px 110px;
+}
+
+.info-topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 52px;
+}
+
+.info-topbar span {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0.30em;
+  color: #822e1b;
+}
+
+.info-grid {
+  width: min(1160px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 80px;
+}
+
+.info-col {
+  color: #822e1b;
+  text-align: center;
+}
+
+.info-col-title {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.34em;
+  margin-bottom: 20px;
+}
+
+.info-line {
+  width: 42px;
+  height: 1.5px;
+  background: #822e1b;
+  margin-bottom: 28px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-list {
+  list-style: none;
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.info-list li {
+  margin-bottom: 12px;
+}
+
+.info-list a:not(.info-map-btn) {
+  color: #822e1b;
+  transition: opacity 0.2s ease;
+}
+
+.info-list a:not(.info-map-btn):hover {
+  opacity: 0.65;
+}
+
+.info-map-btn,
+.info-map-btn:link,
+.info-map-btn:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  color: #efe2d4;
+  background: #822e1b;
+  border: 2px solid #822e1b;
+  border-radius: 999px;
+  padding: 13px 28px;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.info-map-btn:hover,
+.info-map-btn:focus {
+  background: #ead7c2;
+  color: #822e1b;
+  transform: translateY(-2px);
+}
+
+.info-hours .info-day {
+  display: inline-block;
+  min-width: 100px;
+  font-weight: 700;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.info-hours .info-time {
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+  background: #ead7c2;
+  padding: 24px 40px 40px;
+}
+
+.site-footer nav {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  font-size: 15px;
+}
+
+.site-footer a {
+  color: #822e1b;
+}
+
+/* =========================
+   HEADER COLOR STATES
+========================= */
+.hero-topbar,
+.hero-topbar a,
+.hero-topbar .hero-lang {
+  color: #822e1b;
+  transition: color 0.3s ease;
+}
+
+.hero-topbar.on-dark,
+.hero-topbar.on-dark a,
+.hero-topbar.on-dark .hero-lang {
+  color: #f6eadf;
+}
+
+.hero-topbar.on-hero,
+.hero-topbar.on-hero a,
+.hero-topbar.on-hero .hero-lang {
+  color: #822e1b;
+}
+
+/* =========================
+   POPUP EVENTO
+========================= */
+.event-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(34, 20, 14, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.event-popup-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.event-popup-box {
+  position: relative;
+  width: min(1120px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #ead7c2;
+  border-radius: 24px;
+  padding: 42px 42px 36px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
+}
+
+.event-popup-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(130, 46, 27, 0.12);
+  color: #822e1b;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.event-popup-close:hover {
+  background: rgba(130, 46, 27, 0.2);
+  transform: scale(1.04);
+}
+
+.event-popup-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.event-popup-poster-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.event-popup-content {
+  color: #822e1b;
+  max-width: 620px;
+}
+
+.event-popup-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.event-popup-title-strong {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 62px;
+  letter-spacing: 0.01em;
+}
+
+.event-popup-title-light {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 52px;
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+}
+
+.event-popup-line {
+  width: 78px;
+  height: 2px;
+  background: #822e1b;
+  margin-bottom: 30px;
+}
+
+.event-popup-description {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.event-popup-description p {
+  margin-bottom: 20px;
+}
+
+.event-popup-actions {
+  margin-top: 24px;
+}
+
+body.popup-open {
+  overflow: hidden;
+}
+
+/* =========================
+   POPUP CONTATTI
+========================= */
+.contact-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(34, 20, 14, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 10001;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.contact-popup-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contact-popup-box {
+  position: relative;
+  background: #f6eadf;
+  border-radius: 20px;
+  padding: 44px 48px 40px;
+  width: min(420px, 100%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
+  text-align: center;
+}
+
+.contact-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(130, 46, 27, 0.1);
+  color: #822e1b;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contact-popup-close:hover {
+  background: rgba(130, 46, 27, 0.2);
+}
+
+.contact-popup-label {
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 19px;
+  letter-spacing: 0.01em;
+  color: #822e1b;
+  margin-bottom: 28px;
+}
+
+.contact-popup-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-popup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "NeueMontreal", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  padding: 16px 24px;
+  border-radius: 999px;
+  border: 1.5px solid #822e1b;
+  color: #822e1b;
+  background: transparent;
+  transition: background-color 0.22s ease, color 0.22s ease, transform 0.18s ease;
+}
+
+.contact-popup-btn:hover {
+  background: #822e1b;
+  color: #f6eadf;
+  transform: translateY(-2px);
+}
+
+.contact-popup-btn--wa {
+  background: #822e1b;
+  color: #f6eadf;
+}
+
+.contact-popup-btn--wa:hover {
+  background: #6b2516;
+  border-color: #6b2516;
+}
+
+/* =========================
+   SCROLL TO TOP
+========================= */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #822e1b;
+  background: rgba(246, 234, 223, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.95);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+#scrollTopBtn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(246, 234, 223, 0.25);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1100px) {
+  .event-clean-layout {
+    grid-template-columns: 340px 1fr;
+    gap: 60px;
+  }
+
+  .event-clean-title-strong {
+    font-size: 56px;
+  }
+
+  .event-clean-title-light {
+    font-size: 48px;
+  }
+
+  .event-clean-description {
+    font-size: 17px;
+  }
+
+  .eventi-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eventi-gallery-card {
+    aspect-ratio: 0.78 / 1;
+    height: auto;
+  }
+
+  .eventi-poster-grid {
+    grid-template-columns: repeat(2, 243px);
+    gap: 22px;
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .eventi-hero-top {
+    top: 32px;
+    left: 32px;
+  }
+
+  .top-right-home {
+    top: 32px;
+    right: 32px;
+  }
+
+  .home-link {
+    font-size: 13px;
+  }
+
+  .eventi-brand-wide-logo {
+    width: 150px;
+  }
+
+  .eventi-hero-title {
+    font-size: 54px;
+    letter-spacing: 0.14em;
+    margin-bottom: 28px;
+  }
+
+  .eventi-hero-subline {
+    font-size: 21px;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+
+  .eventi-hero-text p {
+    font-size: 15px;
+  }
+
+  .eventi-hero-cta-label {
+    font-size: 18px;
+  }
+
+  .eventi-hero-button {
+    min-width: 260px;
+    font-size: 17px;
+    padding: 16px 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: 600px;
+  }
+
+  .hero-topbar {
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    padding: 16px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    border-radius: 26px;
+  }
+
+  .hero-topbar.scrolled {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 14px 16px;
+  }
+
+  .hero-menu {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .hero-lang,
+  .hero-menu a {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-logo {
+    width: 560px;
+    max-width: 88%;
+  }
+
+  .hero-buttons {
+    margin-top: 70px;
+    gap: 16px;
+  }
+
+  .hero-pill-btn {
+    min-width: 165px;
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+
+  .second-title {
+    font-size: 46px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 44px 40px;
+  }
+
+  .event-popup-box {
+    padding: 32px 22px 28px;
+    border-radius: 18px;
+  }
+
+  .event-popup-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .event-popup-poster {
+    max-width: 360px;
+  }
+
+  .event-popup-title-strong {
+    font-size: 42px;
+  }
+
+  .event-popup-title-light {
+    font-size: 34px;
+  }
+
+  .event-popup-description {
+    font-size: 16px;
+  }
+
+  #scrollTopBtn {
+    bottom: 22px;
+    right: 22px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 820px) {
+  .event-clean-section {
+    padding: 28px 24px 60px;
+  }
+
+  .event-clean-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .event-clean-poster {
+    max-width: 420px;
+  }
+
+  .event-clean-title-strong {
+    font-size: 44px;
+  }
+
+  .event-clean-title-light {
+    font-size: 36px;
+  }
+
+  .event-clean-description {
+    font-size: 34px;
+  }
+
+  .event-clean-toplink {
+    font-size: 14px;
+    letter-spacing: 0.16em;
+  }
+}
+
+@media (max-width: 768px) {
+  .eventi-hero {
+    min-height: 100vh;
+    padding: 24px 20px 120px;
+  }
+
+  .eventi-hero-top {
+    top: 24px;
+    left: 20px;
+  }
+
+  .top-right-home {
+    top: 24px;
+    right: 20px;
+  }
+
+  .home-link {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    gap: 8px;
+  }
+
+  .home-link i {
+    font-size: 11px;
+  }
+
+  .eventi-brand-wide-logo {
+    width: 120px;
+  }
+
+  .eventi-hero-content {
+    padding-top: 52px;
+  }
+
+  .eventi-hero-title {
+    font-size: 34px;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .eventi-hero-subline {
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+
+  .eventi-hero-text {
+    max-width: 92%;
+    margin-bottom: 14px;
+  }
+
+  .eventi-hero-text p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .eventi-hero-cta-label {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .eventi-hero-button {
+    min-width: unset;
+    width: 100%;
+    max-width: 320px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    padding: 14px 20px;
+  }
+
+  .hero-icons,
+  .second-icons,
+  .eventi-hero-icons {
+    gap: 34px;
+  }
+
+  .hero-icons a,
+  .second-icons a,
+  .eventi-hero-icons a {
+    font-size: 34px;
+  }
+
+  .eventi-gallery-section {
+    padding: 54px 18px 60px;
+  }
+
+  .eventi-gallery-kicker {
+    font-size: 16px;
+    padding-left: 6px;
+    margin-bottom: 20px;
+  }
+
+  .eventi-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .eventi-gallery-card {
+    aspect-ratio: 0.72 / 1;
+    height: auto;
+  }
+
+  .eventi-gallery-arrow {
+    width: 46px;
+    height: 46px;
+    opacity: 1;
+  }
+
+  .eventi-gallery-arrow span {
+    width: 18px;
+    height: 18px;
+    border-top: 2px solid #8d351f;
+    border-right: 2px solid #8d351f;
+  }
+
+  .eventi-gallery-arrow-left {
+    left: -4px;
+  }
+
+  .eventi-gallery-arrow-right {
+    right: -4px;
+  }
+
+ .eventi-poster-topbar {
+  position: static;
+  margin-bottom: 14px;
+  padding-left: 2px;
+}
+
+.eventi-poster-topbar-logo {
+  width: 160px;
+}
+
+.eventi-poster-topbar-right {
+  position: static;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.eventi-poster-topbar-right span {
+  font-size: 14px;
+  letter-spacing: 0.22em;
+}
+
+  .eventi-poster-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .eventi-poster-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 0.67 / 1;
+  }
+
+  .eventi-poster-meta h3 {
+    font-size: 20px;
+  }
+
+  .eventi-poster-meta p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .second-title {
+    font-size: 34px;
+  }
+
+  .second-storia-bg {
+    top: -340px;
+    width: 75%;
+    max-width: 560px;
+  }
+
+  .second-subtitle {
+    font-size: 14px;
+  }
+
+  .info-section {
+    padding: 28px 24px 60px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .info-list {
+    font-size: 19px;
+  }
+}
+
+
+.eventi-hero-subline-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(8px);
+  animation: eventiSublineReveal 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.45s;
+}
+
+@keyframes eventiSublineReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.lang-switch {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.lang-switch:hover {
+  opacity: 0.7;
+}
+
+.lang-switch.is-active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drink - Bottegaia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    @font-face {
+      font-family: "Gordita";
+      src: url("fonts/gordita-regular.woff") format("woff");
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: "Gordita";
+      src: url("fonts/gordita-bold.woff") format("woff");
+      font-weight: 700;
+    }
+
+    @font-face {
+      font-family: "NeueMontreal";
+      src: url("fonts/Neue Montreal Medium 500.woff2") format("woff2");
+      font-weight: 500;
+    }
+
+    @font-face {
+      font-family: "Champagne";
+      src: url("fonts/champagne-bold.woff2") format("woff2");
+      font-weight: 700;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "Gordita", Arial, sans-serif;
+      background: #efe2d4;
+      color: #822e1b;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .menu-pdf-page {
+      min-height: 100vh;
+      background: #efe2d4;
+      padding: 42px 56px 80px;
+      position: relative;
+    }
+
+    .menu-top-left,
+    .menu-top-right {
+      position: absolute;
+      top: 50px;
+      z-index: 5;
+    }
+
+    .menu-top-left {
+      left: 56px;
+    }
+
+    .menu-top-right {
+      right: 56px;
+    }
+
+    .menu-logo {
+      width: 185px;
+      display: block;
+    }
+
+    .menu-home-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "NeueMontreal", Arial, sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #822e1b;
+      transition: opacity 0.25s ease;
+    }
+
+    .menu-home-link:hover {
+      opacity: 0.7;
+    }
+
+    .menu-pdf-content {
+      width: 100%;
+      max-width: 1180px;
+      margin: 150px auto 0;
+      text-align: center;
+    }
+
+    .menu-pdf-kicker {
+      font-family: "NeueMontreal", Arial, sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #822e1b;
+      margin-bottom: 14px;
+    }
+
+    .menu-pdf-title {
+      font-family: "Champagne", Arial, sans-serif;
+      font-size: 54px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #822e1b;
+      margin-bottom: 18px;
+    }
+
+    .menu-pdf-text {
+      max-width: 100%;
+      margin: 0 auto 34px;
+      font-size: 17px;
+      line-height: 1.65;
+      color: #822e1b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .menu-pdf-actions {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 34px;
+    }
+
+    .menu-pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 320px;
+      padding: 16px 28px;
+      border-radius: 999px;
+      border: 2px solid #822e1b;
+      background: #822e1b;
+      color: #efe2d4;
+      font-family: "NeueMontreal", Arial, sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    }
+
+    .menu-pdf-btn:hover {
+      background: #efe2d4;
+      color: #822e1b;
+      transform: translateY(-2px);
+    }
+
+    .menu-pdf-frame {
+      width: 100%;
+      height: 78vh;
+      border: 1px solid rgba(130, 46, 27, 0.15);
+      border-radius: 22px;
+      overflow: hidden;
+      background: #f7efe7;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .menu-pdf-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1px solid rgba(130, 46, 27, 0.25);
+      background: rgba(246, 234, 223, 0.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #822e1b;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, border 0.3s ease;
+      z-index: 9999;
+    }
+
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    #scrollTopBtn:hover {
+      background: rgba(246, 234, 223, 0.35);
+      border: 1px solid rgba(130, 46, 27, 0.45);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .menu-pdf-page {
+        padding: 24px 20px 70px;
+      }
+
+      .menu-top-left {
+        left: 20px;
+        top: 24px;
+      }
+
+      .menu-top-right {
+        right: 20px;
+        top: 24px;
+      }
+
+      .menu-logo {
+        width: 120px;
+      }
+
+      .menu-home-link {
+        font-size: 12px;
+        letter-spacing: 0.12em;
+      }
+
+      .menu-pdf-content {
+        margin-top: 110px;
+      }
+
+      .menu-pdf-title {
+        font-size: 34px;
+      }
+
+      .menu-pdf-text {
+        font-size: 15px;
+        margin-bottom: 24px;
+      }
+
+      .menu-pdf-btn {
+        min-width: unset;
+        width: 100%;
+        max-width: 360px;
+        font-size: 13px;
+        padding: 14px 18px;
+      }
+
+      .menu-pdf-frame {
+        height: 70vh;
+        border-radius: 16px;
+      }
+
+      #scrollTopBtn {
+        right: 20px;
+        bottom: 20px;
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="menu-pdf-page">
+
+    <div class="menu-top-left">
+      <a href="index.html">
+        <img src="images/logolato.png" alt="Bottegaia" class="menu-logo">
+      </a>
+    </div>
+
+    <div class="menu-top-right">
+      <a href="menu.html" class="menu-home-link" data-key="home">
+        <i class="fa-solid fa-arrow-right"></i>
+        HOME
+      </a>
+    </div>
+
+    <div class="menu-pdf-content">
+      <h1 class="menu-pdf-title" data-key="title">DRINK</h1>
+      <p class="menu-pdf-text" data-key="text">
+        Consulta la drink list completa qui sotto oppure aprila a schermo intero per leggerla con più comodità.
+      </p>
+
+      <div class="menu-pdf-actions">
+        <a href="pdf/menu-drink.pdf" target="_blank" class="menu-pdf-btn" data-key="button">
+          <i class="fa-solid fa-file-pdf"></i>
+          Apri la drink list completa
+        </a>
+      </div>
+
+      <div class="menu-pdf-frame">
+        <iframe src="pdf/menu-drink.pdf"></iframe>
+      </div>
+    </div>
+
+  </section>
+
+  <button id="scrollTopBtn" aria-label="Torna su">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    const translations = {
+      it: {
+        home: "HOME",
+        title: "DRINK",
+        text: "Consulta la drink list completa qui sotto oppure aprila a schermo intero per leggerla con più comodità.",
+        button: "Apri la drink list completa"
+      },
+      en: {
+        home: "HOME",
+        title: "DRINKS",
+        text: "Browse the full drink list below or open it in full screen for a more comfortable reading experience.",
+        button: "Open the full drink list"
+      }
+    };
+
+    function applyLanguage() {
+      const currentLang = localStorage.getItem("siteLanguage") || "it";
+      document.documentElement.lang = currentLang;
+
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        if (translations[currentLang] && translations[currentLang][key]) {
+          el.textContent = translations[currentLang][key];
+        }
+      });
+    }
+
+    applyLanguage();
+  </script>
+
+</body>
+</html>

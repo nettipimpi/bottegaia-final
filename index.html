@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bottegaia</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <section class="hero hero-section">
+      <div class="hero-topbar hero-topbar-intro" id="floatingHeader">
+        <div class="hero-lang">
+          <span id="lang-it" class="lang-switch is-active">IT</span> /
+          <span id="lang-en" class="lang-switch">ENG</span>
+        </div>
+
+        <nav class="hero-menu">
+          <a href="#contatti" data-key="menu_hours">ORARI</a>
+          <a href="#contatti" data-key="menu_contacts">CONTATTI</a>
+          <a href="#contatti" data-key="menu_where">DOVE SIAMO</a>
+          <a href="eventi.html" data-key="menu_events">EVENTI E SERVIZI</a>
+          <a href="eventi.html#galleria" data-key="menu_gallery">GALLERIA</a>
+        </nav>
+      </div>
+
+      <div class="hero-overlay">
+        <img src="images/logo.png" alt="Bottegaia" class="hero-logo">
+
+        <div class="hero-buttons">
+          <a href="#" class="hero-pill-btn open-contact-popup" data-key="hero_book">PRENOTA QUI</a>
+          <a href="menu.html" class="hero-pill-btn" data-key="hero_menu">VEDI I MENÙ</a>
+          <a href="eventi.html" class="hero-pill-btn" data-key="hero_event">ORGANIZZA IL TUO EVENTO</a>
+        </div>
+      </div>
+
+      <div class="hero-icons">
+        <a href="https://www.google.com/maps/place/Botte+Gaia/@44.694671,10.6291387,17z/data=!3m1!4b1!4m6!3m5!1s0x47801c74ff508cc9:0xaf0d7e07df6332a!8m2!3d44.694671!4d10.631719!16s%2Fg%2F12mkvpnys?entry=ttug_ep=EgoyMDI2MDQxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" aria-label="Maps">
+          <i class="fa-solid fa-location-dot"></i>
+        </a>
+        <a href="https://www.instagram.com/bottegaia.re" target="_blank" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="open-contact-popup" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </section>
+
+    <section class="second-section dark-section">
+
+      <div class="second-logo-corner">
+        <img src="images/logolato2.png" alt="Bottegaia" class="second-corner-logo">
+      </div>
+
+      <div class="second-overlay">
+        <img src="images/STORIA.svg" alt="" class="second-storia-bg" aria-hidden="true">
+        <p class="second-subtitle" data-key="story_subtitle">IN PIAZZA FONTANESI</p>
+        <h2 class="second-title" data-key="story_title">"DALLE BOTTI"</h2>
+
+        <p class="second-text" data-key="story_text_1">
+          Bottegaia è un progetto che unisce convivialità, qualità e identità. Un luogo dove ogni elemento, dal prodotto all'atmosfera, è pensato per creare un'esperienza coerente e riconoscibile.
+        </p>
+        <p class="second-text" data-key="story_text_2">
+          Il team interpreta ogni evento come qualcosa di unico, lavorando con attenzione e sensibilità per trasformare ogni occasione in un momento da vivere, non solo da consumare.
+        </p>
+      </div>
+
+      <div class="second-icons">
+        <a href="https://www.google.com/maps/place/Botte+Gaia/@44.694671,10.6291387,17z/data=!3m1!4b1!4m6!3m5!1s0x47801c74ff508cc9:0xaf0d7e07df6332a!8m2!3d44.694671!4d10.631719!16s%2Fg%2F12mkvpnys?entry=ttu&g_ep=EgoyMDI2MDQxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" aria-label="Maps">
+          <i class="fa-solid fa-location-dot"></i>
+        </a>
+        <a href="https://www.instagram.com/bottegaia.re" target="_blank" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="open-contact-popup" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+
+    </section>
+
+    <section class="info-section" id="contatti">
+      <div class="info-topbar">
+        <span data-key="info_title">INFORMAZIONI</span>
+      </div>
+
+      <div class="info-grid">
+
+        <div class="info-col">
+          <h3 class="info-col-title" data-key="hours_title">ORARI</h3>
+          <div class="info-line"></div>
+          <ul class="info-list info-hours">
+            <li><span class="info-day" data-key="monday">Lunedì</span><span class="info-time" data-key="closed">chiuso</span></li>
+            <li><span class="info-day" data-key="tue_thu">Mar – Gio</span><span class="info-time">17:00 – 23:00</span></li>
+            <li><span class="info-day" data-key="friday">Venerdì</span><span class="info-time">17:00 – 00:00</span></li>
+            <li><span class="info-day" data-key="saturday">Sabato</span><span class="info-time">12:00 – 00:00</span></li>
+            <li><span class="info-day" data-key="sunday">Domenica</span><span class="info-time">12:00 – 23:00</span></li>
+          </ul>
+        </div>
+
+        <div class="info-col">
+          <h3 class="info-col-title" data-key="contacts_title">CONTATTI</h3>
+          <div class="info-line"></div>
+          <ul class="info-list">
+            <li><a href="tel:+393478126475">347 812 64 75</a></li>
+            <li><a href="mailto:bottegaia.re@gmail.com">bottegaia.re@gmail.com</a></li>
+            <li>
+              <a href="#" class="info-map-btn open-contact-popup" data-key="contact_us">CONTATTACI</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="info-col">
+          <h3 class="info-col-title" data-key="where_title">DOVE SIAMO</h3>
+          <div class="info-line"></div>
+          <ul class="info-list">
+            <li data-key="address_line_1">Piazza Fontanesi</li>
+            <li data-key="address_line_2">Reggio Emilia</li>
+          </ul>
+          <a href="https://www.google.com/maps/place/Botte+Gaia/@44.694671,10.6291387,17z/data=!3m1!4b1!4m6!3m5!1s0x47801c74ff508cc9:0xaf0d7e07df6332a!8m2!3d44.694671!4d10.631719!16s%2Fg%2F12mkvpnys?entry=ttu&g_ep=EgoyMDI2MDQxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="info-map-btn" data-key="how_to_reach">COME RAGGIUNGERCI</a>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const floatingHeader = document.getElementById("floatingHeader");
+    const sections = document.querySelectorAll("section");
+
+    function handleHeaderScroll() {
+      if (window.scrollY > 30) {
+        floatingHeader.classList.add("scrolled");
+      } else {
+        floatingHeader.classList.remove("scrolled");
+      }
+
+      let isDark = false;
+      let isHero = false;
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= 80 && rect.bottom >= 80) {
+          if (section.classList.contains("hero-section")) {
+            isHero = true;
+          }
+
+          if (section.classList.contains("dark-section")) {
+            isDark = true;
+          }
+        }
+      });
+
+      floatingHeader.classList.remove("on-dark", "on-hero");
+
+      if (isHero) {
+        floatingHeader.classList.add("on-hero");
+      } else if (isDark) {
+        floatingHeader.classList.add("on-dark");
+      }
+    }
+
+    window.addEventListener("scroll", handleHeaderScroll);
+    handleHeaderScroll();
+  </script>
+
+  <div class="event-popup-overlay" id="eventPopup">
+    <div class="event-popup-box">
+      <button class="event-popup-close" id="closeEventPopup" aria-label="Chiudi popup">×</button>
+
+      <div class="event-popup-layout">
+        <div class="event-popup-poster">
+          <img src="images/evento-1.png" alt="Locandina Tortellata" class="event-popup-poster-image">
+        </div>
+
+        <div class="event-popup-content">
+          <h3 class="event-popup-title">
+            <span class="event-popup-title-strong" data-key="popup_event_title">TORTELLATA</span>
+            <span class="event-popup-title-light" data-key="popup_event_date">GIOVEDÌ 26 MARZO</span>
+          </h3>
+
+          <div class="event-popup-line"></div>
+
+          <div class="event-popup-description">
+            <p data-key="popup_event_text_1">Una serata dedicata ai tortelli fatti a mano, preparati con cura e ingredienti selezionati.</p>
+            <p data-key="popup_event_text_2">Da Bottegaia proponiamo un percorso di gusti diversi, tra abbinamenti più tradizionali e qualche variazione.</p>
+            <p data-key="popup_event_text_3">Un’occasione semplice per mangiare bene e stare insieme.</p>
+          </div>
+
+          <div class="event-popup-actions">
+            <a href="https://wa.me/393478126475?text=Ciao%20Bottegaia%2C%20vorrei%20prenotarmi%20per%20l'evento." target="_blank" class="event-clean-button" data-key="popup_book">
+              PRENOTATI
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const eventPopup = document.getElementById("eventPopup");
+    const closeEventPopup = document.getElementById("closeEventPopup");
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        eventPopup.classList.add("is-open");
+        document.body.classList.add("popup-open");
+      }, 400);
+    });
+
+    closeEventPopup.addEventListener("click", () => {
+      eventPopup.classList.remove("is-open");
+      document.body.classList.remove("popup-open");
+    });
+
+    eventPopup.addEventListener("click", (e) => {
+      if (e.target === eventPopup) {
+        eventPopup.classList.remove("is-open");
+        document.body.classList.remove("popup-open");
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        eventPopup.classList.remove("is-open");
+        document.body.classList.remove("popup-open");
+      }
+    });
+  </script>
+
+  <!-- POPUP CONTATTI -->
+  <div class="contact-popup-overlay" id="contactPopup">
+    <div class="contact-popup-box">
+      <button class="contact-popup-close" id="closeContactPopup" aria-label="Chiudi">×</button>
+      <p class="contact-popup-label" data-key="contact_popup_title">Come vuoi contattarci?</p>
+      <div class="contact-popup-btns">
+        <a href="tel:+393478126475" class="contact-popup-btn">
+          <i class="fa-solid fa-phone"></i>
+          <span data-key="call">Chiama</span>
+        </a>
+        <a href="https://wa.me/393478126475?text=Ciao%20ragazzi%2C%20vorrei%20prenotare%20un%20tavolo." target="_blank" class="contact-popup-btn contact-popup-btn--wa">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span data-key="write_whatsapp">Scrivi su WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const contactPopup = document.getElementById("contactPopup");
+    const closeContactPopup = document.getElementById("closeContactPopup");
+
+    document.querySelectorAll(".open-contact-popup").forEach(el => {
+      el.addEventListener("click", e => {
+        e.preventDefault();
+        contactPopup.classList.add("is-open");
+        document.body.classList.add("popup-open");
+      });
+    });
+
+    closeContactPopup.addEventListener("click", () => {
+      contactPopup.classList.remove("is-open");
+      document.body.classList.remove("popup-open");
+    });
+
+    contactPopup.addEventListener("click", e => {
+      if (e.target === contactPopup) {
+        contactPopup.classList.remove("is-open");
+        document.body.classList.remove("popup-open");
+      }
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        contactPopup.classList.remove("is-open");
+        document.body.classList.remove("popup-open");
+      }
+    });
+  </script>
+
+  <!-- SCROLL TO TOP -->
+  <button id="scrollTopBtn" aria-label="Torna su">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+  <script>
+    const translations = {
+      it: {
+        menu_hours: "ORARI",
+        menu_contacts: "CONTATTI",
+        menu_where: "DOVE SIAMO",
+        menu_events: "EVENTI E SERVIZI",
+        menu_gallery: "GALLERIA",
+        hero_book: "PRENOTA QUI",
+        hero_menu: "VEDI I MENÙ",
+        hero_event: "ORGANIZZA IL TUO EVENTO",
+        story_subtitle: "IN PIAZZA FONTANESI",
+        story_title: "\"DALLE BOTTI\"",
+        story_text_1: "Bottegaia è un progetto che unisce convivialità, qualità e identità. Un luogo dove ogni elemento, dal prodotto all'atmosfera, è pensato per creare un'esperienza coerente e riconoscibile.",
+        story_text_2: "Il team interpreta ogni evento come qualcosa di unico, lavorando con attenzione e sensibilità per trasformare ogni occasione in un momento da vivere, non solo da consumare.",
+        info_title: "INFORMAZIONI",
+        hours_title: "ORARI",
+        contacts_title: "CONTATTI",
+        where_title: "DOVE SIAMO",
+        monday: "Lunedì",
+        closed: "chiuso",
+        tue_thu: "Mar – Gio",
+        friday: "Venerdì",
+        saturday: "Sabato",
+        sunday: "Domenica",
+        contact_us: "CONTATTACI",
+        address_line_1: "Piazza Fontanesi",
+        address_line_2: "Reggio Emilia",
+        how_to_reach: "COME RAGGIUNGERCI",
+        popup_event_title: "TORTELLATA",
+        popup_event_date: "GIOVEDÌ 26 MARZO",
+        popup_event_text_1: "Una serata dedicata ai tortelli fatti a mano, preparati con cura e ingredienti selezionati.",
+        popup_event_text_2: "Da Bottegaia proponiamo un percorso di gusti diversi, tra abbinamenti più tradizionali e qualche variazione.",
+        popup_event_text_3: "Un’occasione semplice per mangiare bene e stare insieme.",
+        popup_book: "PRENOTATI",
+        contact_popup_title: "Come vuoi contattarci?",
+        call: "Chiama",
+        write_whatsapp: "Scrivi su WhatsApp"
+      },
+      en: {
+        menu_hours: "OPENING HOURS",
+        menu_contacts: "CONTACTS",
+        menu_where: "LOCATION",
+        menu_events: "EVENTS & SERVICES",
+        menu_gallery: "GALLERY",
+        hero_book: "BOOK NOW",
+        hero_menu: "VIEW MENUS",
+        hero_event: "ORGANIZE YOUR EVENT",
+        story_subtitle: "IN PIAZZA FONTANESI",
+        story_title: "\"FROM THE BARRELS\"",
+        story_text_1: "Bottegaia is a project that brings together conviviality, quality, and identity. A place where every element, from the product to the atmosphere, is designed to create a coherent and distinctive experience.",
+        story_text_2: "The team approaches every event as something unique, working with care and sensitivity to transform every occasion into a moment to be truly experienced, not simply consumed.",
+        info_title: "INFORMATION",
+        hours_title: "OPENING HOURS",
+        contacts_title: "CONTACTS",
+        where_title: "LOCATION",
+        monday: "Monday",
+        closed: "closed",
+        tue_thu: "Tue – Thu",
+        friday: "Friday",
+        saturday: "Saturday",
+        sunday: "Sunday",
+        contact_us: "CONTACT US",
+        address_line_1: "Piazza Fontanesi",
+        address_line_2: "Reggio Emilia",
+        how_to_reach: "HOW TO REACH US",
+        popup_event_title: "TORTELLI NIGHT",
+        popup_event_date: "THURSDAY 26 MARCH",
+        popup_event_text_1: "An evening dedicated to handmade tortelli, prepared with care and selected ingredients.",
+        popup_event_text_2: "At Bottegaia we offer a journey through different flavors, from more traditional pairings to a few variations.",
+        popup_event_text_3: "A simple occasion to eat well and enjoy being together.",
+        popup_book: "BOOK NOW",
+        contact_popup_title: "How would you like to contact us?",
+        call: "Call",
+        write_whatsapp: "Write on WhatsApp"
+      }
+    };
+
+    const langItBtn = document.getElementById("lang-it");
+    const langEnBtn = document.getElementById("lang-en");
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      langItBtn.classList.toggle("is-active", lang === "it");
+      langEnBtn.classList.toggle("is-active", lang === "en");
+
+      localStorage.setItem("siteLanguage", lang);
+    }
+
+    langItBtn.addEventListener("click", () => setLanguage("it"));
+    langEnBtn.addEventListener("click", () => setLanguage("en"));
+
+    const savedLanguage = localStorage.getItem("siteLanguage") || "it";
+    setLanguage(savedLanguage);
+  </script>
+
+</body>
+</html>
