@@ -14,8 +14,9 @@
     <section class="hero hero-section">
       <div class="hero-topbar hero-topbar-intro" id="floatingHeader">
         <div class="hero-lang">
-          <span id="lang-it" class="lang-switch is-active">IT</span> /
-          <span id="lang-en" class="lang-switch">ENG</span>
+          <img id="lang-it" src="images/flag-it.png" alt="Italiano" class="lang-switch lang-flag is-active">
+          <span class="lang-sep">/</span>
+          <img id="lang-en" src="images/flag-uk.png" alt="English" class="lang-switch lang-flag">
         </div>
 
         <nav class="hero-menu">
@@ -25,7 +26,28 @@
           <a href="eventi.html" data-key="menu_events">EVENTI E SERVIZI</a>
           <a href="eventi.html#galleria" data-key="menu_gallery">GALLERIA</a>
         </nav>
+
+        <!-- Hamburger visibile solo su mobile -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+
+  <!-- Overlay menu mobile -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <a href="#contatti" data-key="menu_hours" class="mobile-nav-link">ORARI</a>
+    <a href="#contatti" data-key="menu_contacts" class="mobile-nav-link">CONTATTI</a>
+    <a href="#contatti" data-key="menu_where" class="mobile-nav-link">DOVE SIAMO</a>
+    <a href="eventi.html" data-key="menu_events" class="mobile-nav-link">EVENTI E SERVIZI</a>
+    <a href="eventi.html#galleria" data-key="menu_gallery" class="mobile-nav-link">GALLERIA</a>
+    <div class="mobile-menu-lang">
+      <img id="mobile-lang-it" src="images/flag-it.png" alt="Italiano" class="lang-switch lang-flag is-active">
+      <span class="lang-sep">/</span>
+      <img id="mobile-lang-en" src="images/flag-uk.png" alt="English" class="lang-switch lang-flag">
+    </div>
+  </div>
 
       <div class="hero-overlay">
         <img src="images/logo.png" alt="Bottegaia" class="hero-logo">
@@ -91,35 +113,39 @@
       <div class="info-grid">
 
         <div class="info-col">
-          <h3 class="info-col-title" data-key="hours_title">ORARI</h3>
           <div class="info-line"></div>
-          <ul class="info-list info-hours">
-            <li><span class="info-day" data-key="monday">Lunedì</span><span class="info-time" data-key="closed">chiuso</span></li>
-            <li><span class="info-day" data-key="tue_thu">Mar – Gio</span><span class="info-time">17:00 – 23:00</span></li>
-            <li><span class="info-day" data-key="friday">Venerdì</span><span class="info-time">17:00 – 00:00</span></li>
-            <li><span class="info-day" data-key="saturday">Sabato</span><span class="info-time">12:00 – 00:00</span></li>
-            <li><span class="info-day" data-key="sunday">Domenica</span><span class="info-time">12:00 – 23:00</span></li>
-          </ul>
+          <h3 class="info-col-title" data-key="hours_title">ORARI</h3>
+          <div class="info-hours-grid">
+            <span class="info-hours-day" data-key="monday">Lunedì</span>
+            <span class="info-hours-time" data-key="monday_time">chiuso</span>
+
+            <span class="info-hours-day" data-key="tue_sat">Mar – Sab</span>
+            <span class="info-hours-time">dalle 18:00</span>
+
+            <span class="info-hours-day" data-key="sat_sun">Sab – Dom</span>
+            <span class="info-hours-time">dalle 12:00</span>
+          </div>
+          <a href="#" class="info-map-btn open-contact-popup" style="margin-top: 32px;" data-key="info_book">PRENOTA</a>
         </div>
 
         <div class="info-col">
-          <h3 class="info-col-title" data-key="contacts_title">CONTATTI</h3>
           <div class="info-line"></div>
+          <h3 class="info-col-title" data-key="contacts_title">CONTATTI</h3>
           <ul class="info-list">
             <li><a href="tel:+393478126475">347 812 64 75</a></li>
             <li><a href="mailto:bottegaia.re@gmail.com">bottegaia.re@gmail.com</a></li>
             <li>
-              <a href="#" class="info-map-btn open-contact-popup" data-key="contact_us">CONTATTACI</a>
+              <a href="#" class="info-map-btn open-contattaci-popup" data-key="contact_us">CONTATTACI</a>
             </li>
           </ul>
         </div>
 
         <div class="info-col">
-          <h3 class="info-col-title" data-key="where_title">DOVE SIAMO</h3>
           <div class="info-line"></div>
+          <h3 class="info-col-title" data-key="where_title">DOVE SIAMO</h3>
           <ul class="info-list">
-            <li data-key="address_line_1">Piazza Fontanesi</li>
-            <li data-key="address_line_2">Reggio Emilia</li>
+            <li data-key="address_line_1">Piazza Antonio Fontanesi, 10</li>
+            <li data-key="address_line_2">42121 Reggio nell'Emilia RE</li>
           </ul>
           <a href="https://www.google.com/maps/place/Botte+Gaia/@44.694671,10.6291387,17z/data=!3m1!4b1!4m6!3m5!1s0x47801c74ff508cc9:0xaf0d7e07df6332a!8m2!3d44.694671!4d10.631719!16s%2Fg%2F12mkvpnys?entry=ttu&g_ep=EgoyMDI2MDQxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="info-map-btn" data-key="how_to_reach">COME RAGGIUNGERCI</a>
         </div>
@@ -252,6 +278,28 @@
     </div>
   </div>
 
+  <!-- POPUP CONTATTACI (con mail) -->
+  <div class="contact-popup-overlay" id="contattaciPopup">
+    <div class="contact-popup-box">
+      <button class="contact-popup-close" id="closeContattaciPopup" aria-label="Chiudi">×</button>
+      <p class="contact-popup-label" data-key="contact_popup_title">Come vuoi contattarci?</p>
+      <div class="contact-popup-btns">
+        <a href="tel:+393478126475" class="contact-popup-btn">
+          <i class="fa-solid fa-phone"></i>
+          <span data-key="call">Chiama</span>
+        </a>
+        <a href="https://wa.me/393478126475?text=Ciao%20ragazzi%2C%20vorrei%20prenotare%20un%20tavolo." target="_blank" class="contact-popup-btn contact-popup-btn--wa">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span data-key="write_whatsapp">Scrivi su WhatsApp</span>
+        </a>
+        <a href="mailto:bottegaia.re@gmail.com" class="contact-popup-btn contact-popup-btn--mail">
+          <i class="fa-solid fa-envelope"></i>
+          <span data-key="write_mail">Scrivi una mail</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script>
     const contactPopup = document.getElementById("contactPopup");
     const closeContactPopup = document.getElementById("closeContactPopup");
@@ -308,6 +356,67 @@
     });
   </script>
 
+  <!-- HAMBURGER MENU JS -->
+  <script>
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+
+    function toggleMobileMenu() {
+      const isOpen = mobileMenuOverlay.classList.toggle("is-open");
+      hamburgerBtn.classList.toggle("is-open", isOpen);
+      document.body.style.overflow = isOpen ? "hidden" : "";
+    }
+
+    hamburgerBtn.addEventListener("click", toggleMobileMenu);
+
+    // Chiudi cliccando su un link
+    document.querySelectorAll(".mobile-nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenuOverlay.classList.remove("is-open");
+        hamburgerBtn.classList.remove("is-open");
+        document.body.style.overflow = "";
+      });
+    });
+
+    // Sync lingua con i bottoni nel menu mobile
+    const mobileLangIt = document.getElementById("mobile-lang-it");
+    const mobileLangEn = document.getElementById("mobile-lang-en");
+    if (mobileLangIt) mobileLangIt.addEventListener("click", () => setLanguage("it"));
+    if (mobileLangEn) mobileLangEn.addEventListener("click", () => setLanguage("en"));
+  </script>
+
+  <script>
+    const contattaciPopup = document.getElementById("contattaciPopup");
+    const closeContattaciPopup = document.getElementById("closeContattaciPopup");
+
+    document.querySelectorAll(".open-contattaci-popup").forEach(el => {
+      el.addEventListener("click", e => {
+        e.preventDefault();
+        contattaciPopup.classList.add("is-open");
+        document.body.classList.add("popup-open");
+      });
+    });
+
+    closeContattaciPopup.addEventListener("click", () => {
+      contattaciPopup.classList.remove("is-open");
+      document.body.classList.remove("popup-open");
+    });
+
+    contattaciPopup.addEventListener("click", e => {
+      if (e.target === contattaciPopup) {
+        contattaciPopup.classList.remove("is-open");
+        document.body.classList.remove("popup-open");
+      }
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        contattaciPopup.classList.remove("is-open");
+        document.body.classList.remove("popup-open");
+      }
+    });
+  </script>
+
   <script>
     const translations = {
       it: {
@@ -328,14 +437,13 @@
         contacts_title: "CONTATTI",
         where_title: "DOVE SIAMO",
         monday: "Lunedì",
-        closed: "chiuso",
-        tue_thu: "Mar – Gio",
-        friday: "Venerdì",
-        saturday: "Sabato",
-        sunday: "Domenica",
+        monday_time: "chiuso",
+        tue_sat: "Mar – Sab",
+        sat_sun: "Sab – Dom",
+        info_book: "PRENOTA",
         contact_us: "CONTATTACI",
-        address_line_1: "Piazza Fontanesi",
-        address_line_2: "Reggio Emilia",
+        address_line_1: "Piazza Antonio Fontanesi, 10",
+        address_line_2: "42121 Reggio nell'Emilia RE",
         how_to_reach: "COME RAGGIUNGERCI",
         popup_event_title: "TORTELLATA",
         popup_event_date: "GIOVEDÌ 26 MARZO",
@@ -345,7 +453,8 @@
         popup_book: "PRENOTATI",
         contact_popup_title: "Come vuoi contattarci?",
         call: "Chiama",
-        write_whatsapp: "Scrivi su WhatsApp"
+        write_whatsapp: "Scrivi su WhatsApp",
+        write_mail: "Scrivi una mail"
       },
       en: {
         menu_hours: "OPENING HOURS",
@@ -365,14 +474,13 @@
         contacts_title: "CONTACTS",
         where_title: "LOCATION",
         monday: "Monday",
-        closed: "closed",
-        tue_thu: "Tue – Thu",
-        friday: "Friday",
-        saturday: "Saturday",
-        sunday: "Sunday",
+        monday_time: "closed",
+        tue_sat: "Tue – Sat",
+        sat_sun: "Sat – Sun",
+        info_book: "BOOK NOW",
         contact_us: "CONTACT US",
-        address_line_1: "Piazza Fontanesi",
-        address_line_2: "Reggio Emilia",
+        address_line_1: "Piazza Antonio Fontanesi, 10",
+        address_line_2: "42121 Reggio nell'Emilia RE",
         how_to_reach: "HOW TO REACH US",
         popup_event_title: "TORTELLI NIGHT",
         popup_event_date: "THURSDAY 26 MARCH",
@@ -382,7 +490,8 @@
         popup_book: "BOOK NOW",
         contact_popup_title: "How would you like to contact us?",
         call: "Call",
-        write_whatsapp: "Write on WhatsApp"
+        write_whatsapp: "Write on WhatsApp",
+        write_mail: "Send an email"
       }
     };
 

@@ -35,7 +35,7 @@
 
       <div class="eventi-hero-text">
         <p data-key="eventi_text_1">Da Bottegaia è possibile creare eventi e aperitivi su misura, pensati con cura e attenzione per ogni dettaglio.</p>
-        <p data-key="eventi_text_2">Ogni richiesta viene seguita con disponibilità e precisione, per offrire un’esperienza fluida e senza pensieri.</p>
+        <p data-key="eventi_text_2">Ogni richiesta viene seguita con disponibilità e precisione, per offrire un'esperienza fluida e senza pensieri.</p>
       </div>
 
       <p class="eventi-hero-cta-label" data-key="eventi_cta_label">ORGANIZZA IL TUO EVENTO</p>
@@ -54,11 +54,9 @@
       <a href="https://www.google.com/maps/place/Botte+Gaia/@44.694671,10.6291387,17z/data=!3m1!4b1!4m6!3m5!1s0x47801c74ff508cc9:0xaf0d7e07df6332a!8m2!3d44.694671!4d10.631719!16s%2Fg%2F12mkvpnys?entry=ttu&g_ep=EgoyMDI2MDQxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" aria-label="Maps">
         <i class="fa-solid fa-location-dot"></i>
       </a>
-
       <a href="https://www.instagram.com/bottegaia.re" target="_blank" aria-label="Instagram">
         <i class="fa-brands fa-instagram"></i>
       </a>
-
       <a href="https://wa.me/393478126475?text=Ciao%20ragazzi%2C%20vorrei%20avere%20pi%C3%B9%20informazioni%20sui%20vostri%20eventi." target="_blank" aria-label="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
       </a>
@@ -79,7 +77,7 @@
           <span></span>
         </button>
 
-        <div class="eventi-gallery-viewport">
+        <div class="eventi-gallery-viewport" id="eventiGalleryViewport">
           <div class="eventi-gallery-track" id="eventiGalleryTrack">
 
             <div class="eventi-gallery-slide">
@@ -172,13 +170,11 @@
     <div class="contact-popup-box">
       <button class="contact-popup-close" id="closeContactPopup" aria-label="Chiudi">×</button>
       <p class="contact-popup-label" data-key="contact_popup_title">Come vuoi contattarci?</p>
-
       <div class="contact-popup-btns">
         <a href="tel:+393478126475" class="contact-popup-btn">
           <i class="fa-solid fa-phone"></i>
           <span data-key="contact_popup_call">Chiama</span>
         </a>
-
         <a href="https://wa.me/393478126475?text=Ciao%20ragazzi%2C%20vorrei%20avere%20pi%C3%B9%20informazioni%20sui%20vostri%20eventi." target="_blank" class="contact-popup-btn contact-popup-btn--wa">
           <i class="fa-brands fa-whatsapp"></i>
           <span data-key="contact_popup_whatsapp">Scrivi su WhatsApp</span>
@@ -193,6 +189,7 @@
   </button>
 
   <script>
+    const galleryViewport = document.getElementById("eventiGalleryViewport");
     const galleryTrack = document.getElementById("eventiGalleryTrack");
     const gallerySlides = document.querySelectorAll(".eventi-gallery-slide");
     const galleryPrev = document.getElementById("galleryPrev");
@@ -200,9 +197,16 @@
 
     let galleryIndex = 0;
     let galleryInterval;
+    let isUserScrolling = false;
+
+    const isMobile = () => window.innerWidth <= 768;
 
     function updateGallery() {
-      galleryTrack.style.transform = `translateX(-${galleryIndex * 100}%)`;
+      if (isMobile()) {
+        galleryViewport.scrollTo({ left: galleryIndex * galleryViewport.offsetWidth, behavior: "smooth" });
+      } else {
+        galleryTrack.style.transform = `translateX(-${galleryIndex * 100}%)`;
+      }
     }
 
     function nextGallerySlide() {
@@ -210,12 +214,8 @@
       updateGallery();
     }
 
-    function prevGallerySlide() {
-      galleryIndex = (galleryIndex - 1 + gallerySlides.length) % gallerySlides.length;
-      updateGallery();
-    }
-
     function startGalleryAutoplay() {
+      clearInterval(galleryInterval);
       galleryInterval = setInterval(nextGallerySlide, 5000);
     }
 
@@ -224,14 +224,30 @@
       startGalleryAutoplay();
     }
 
-    galleryNext.addEventListener("click", () => {
-      nextGallerySlide();
+    galleryNext.addEventListener("click", () => { nextGallerySlide(); resetGalleryAutoplay(); });
+    galleryPrev.addEventListener("click", () => {
+      galleryIndex = (galleryIndex - 1 + gallerySlides.length) % gallerySlides.length;
+      updateGallery();
       resetGalleryAutoplay();
     });
 
-    galleryPrev.addEventListener("click", () => {
-      prevGallerySlide();
-      resetGalleryAutoplay();
+    galleryViewport.addEventListener("scroll", () => { if (isMobile()) isUserScrolling = true; });
+
+    galleryViewport.addEventListener("scrollend", () => {
+      if (isMobile() && isUserScrolling) {
+        galleryIndex = Math.round(galleryViewport.scrollLeft / galleryViewport.offsetWidth);
+        isUserScrolling = false;
+        resetGalleryAutoplay();
+      }
+    });
+
+    galleryViewport.addEventListener("touchend", () => {
+      if (isMobile()) {
+        setTimeout(() => {
+          galleryIndex = Math.round(galleryViewport.scrollLeft / galleryViewport.offsetWidth);
+          resetGalleryAutoplay();
+        }, 400);
+      }
     });
 
     updateGallery();
@@ -241,48 +257,16 @@
     const closeContactPopup = document.getElementById("closeContactPopup");
 
     document.querySelectorAll(".open-contact-popup").forEach(el => {
-      el.addEventListener("click", e => {
-        e.preventDefault();
-        contactPopup.classList.add("is-open");
-        document.body.classList.add("popup-open");
-      });
+      el.addEventListener("click", e => { e.preventDefault(); contactPopup.classList.add("is-open"); document.body.classList.add("popup-open"); });
     });
 
-    closeContactPopup.addEventListener("click", () => {
-      contactPopup.classList.remove("is-open");
-      document.body.classList.remove("popup-open");
-    });
-
-    contactPopup.addEventListener("click", e => {
-      if (e.target === contactPopup) {
-        contactPopup.classList.remove("is-open");
-        document.body.classList.remove("popup-open");
-      }
-    });
-
-    document.addEventListener("keydown", e => {
-      if (e.key === "Escape") {
-        contactPopup.classList.remove("is-open");
-        document.body.classList.remove("popup-open");
-      }
-    });
+    closeContactPopup.addEventListener("click", () => { contactPopup.classList.remove("is-open"); document.body.classList.remove("popup-open"); });
+    contactPopup.addEventListener("click", e => { if (e.target === contactPopup) { contactPopup.classList.remove("is-open"); document.body.classList.remove("popup-open"); } });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") { contactPopup.classList.remove("is-open"); document.body.classList.remove("popup-open"); } });
 
     const scrollBtn = document.getElementById("scrollTopBtn");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        scrollBtn.classList.add("show");
-      } else {
-        scrollBtn.classList.remove("show");
-      }
-    });
-
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
+    window.addEventListener("scroll", () => { scrollBtn.classList.toggle("show", window.scrollY > 300); });
+    scrollBtn.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }); });
 
     const translations = {
       it: {
@@ -290,7 +274,7 @@
         eventi_title: "EVENTI E SERVIZI",
         eventi_subline: "APERITIVI • CENE AZIENDALI • COMPLEANNI • LAUREE • CATERING",
         eventi_text_1: "Da Bottegaia è possibile creare eventi e aperitivi su misura, pensati con cura e attenzione per ogni dettaglio.",
-        eventi_text_2: "Ogni richiesta viene seguita con disponibilità e precisione, per offrire un’esperienza fluida e senza pensieri.",
+        eventi_text_2: "Ogni richiesta viene seguita con disponibilità e precisione, per offrire un'esperienza fluida e senza pensieri.",
         eventi_cta_label: "ORGANIZZA IL TUO EVENTO",
         eventi_cta_button: "CONTATTACI",
         gallery_kicker: "...IL GUSTO DI STARE INSIEME...",
@@ -332,16 +316,57 @@
     function applyLanguage() {
       const currentLang = localStorage.getItem("siteLanguage") || "it";
       document.documentElement.lang = currentLang;
-
       document.querySelectorAll("[data-key]").forEach(el => {
         const key = el.getAttribute("data-key");
-        if (translations[currentLang] && translations[currentLang][key]) {
-          el.textContent = translations[currentLang][key];
-        }
+        if (translations[currentLang]?.[key]) el.textContent = translations[currentLang][key];
       });
     }
 
     applyLanguage();
+
+    // Poster slider autoplay mobile
+    const posterGrid = document.querySelector(".eventi-poster-grid");
+    const posterCards = document.querySelectorAll(".eventi-poster-card");
+    let posterIndex = 0;
+    let posterInterval;
+    let posterUserScrolling = false;
+
+    function nextPosterSlide() {
+      if (!posterGrid || !isMobile()) return;
+      posterIndex = (posterIndex + 1) % posterCards.length;
+      const card = posterCards[posterIndex];
+      posterGrid.scrollTo({ left: card.offsetLeft - 20, behavior: "smooth" });
+    }
+
+    function startPosterAutoplay() {
+      clearInterval(posterInterval);
+      posterInterval = setInterval(nextPosterSlide, 5000);
+    }
+
+    posterGrid?.addEventListener("scroll", () => {
+      if (isMobile()) posterUserScrolling = true;
+    });
+
+    posterGrid?.addEventListener("scrollend", () => {
+      if (isMobile() && posterUserScrolling) {
+        const cardWidth = posterCards[0]?.offsetWidth + 16;
+        posterIndex = Math.round(posterGrid.scrollLeft / cardWidth);
+        posterUserScrolling = false;
+        startPosterAutoplay();
+      }
+    });
+
+    posterGrid?.addEventListener("touchend", () => {
+      if (isMobile()) {
+        setTimeout(() => {
+          const cardWidth = posterCards[0]?.offsetWidth + 16;
+          posterIndex = Math.round(posterGrid.scrollLeft / cardWidth);
+          startPosterAutoplay();
+        }, 400);
+      }
+    });
+
+    if (isMobile()) startPosterAutoplay();
   </script>
 
 </body>
