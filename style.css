@@ -832,6 +832,7 @@ a {
   grid-template-columns: auto auto;
   gap: 12px 32px;
   align-items: center;
+  justify-items: start;
 }
 
 .info-hours-day {
@@ -856,6 +857,10 @@ a {
 .info-hours-day--span {
   grid-row: span 2;
   align-self: center;
+}
+
+.info-hours-time strong {
+  font-weight: 700;
 }
 
 /* =========================
