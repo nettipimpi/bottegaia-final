@@ -853,10 +853,9 @@ a {
   white-space: nowrap;
 }
 
-.info-hours-time-group {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.info-hours-day--span {
+  grid-row: span 2;
+  align-self: center;
 }
 
 /* =========================
