@@ -830,8 +830,8 @@ a {
 .info-hours-grid {
   display: grid;
   grid-template-columns: auto auto;
-  gap: 6px 32px;
-  align-items: baseline;
+  gap: 12px 32px;
+  align-items: center;
 }
 
 .info-hours-day {
@@ -850,7 +850,6 @@ a {
   letter-spacing: 0.18em;
   font-weight: 400;
   color: #822e1b;
-  white-space: nowrap;
 }
 
 /* =========================
