@@ -852,6 +852,12 @@ a {
   color: #822e1b;
 }
 
+.info-hours-time-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 /* =========================
    FOOTER
 ========================= */
