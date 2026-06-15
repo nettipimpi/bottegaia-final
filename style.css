@@ -850,6 +850,7 @@ a {
   letter-spacing: 0.18em;
   font-weight: 400;
   color: #822e1b;
+  white-space: nowrap;
 }
 
 .info-hours-time-group {
