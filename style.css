@@ -656,8 +656,8 @@ a {
 }
 
 .eventi-gallery-slider:hover .eventi-gallery-arrow { opacity: 1; }
-.eventi-gallery-arrow-left { left: -95px; }
-.eventi-gallery-arrow-right { right: -95px; }
+.eventi-gallery-arrow-left { left: 16px; }
+.eventi-gallery-arrow-right { right: 16px; }
 
 .eventi-gallery-arrow::before {
   content: "";
